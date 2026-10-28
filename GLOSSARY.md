@@ -40,3 +40,19 @@ _Avoid_: Opportunity, use case
 **Automation**:
 The Databricks-native thing that replaces some or all of a Manual Process's human Tasks.
 _Avoid_: Bot, agent (unless it literally is one)
+
+### Configuration and scenarios
+
+**Enterprise Profile**:
+The configured description of the enterprise the asset serves: its name, industry, shape and systems.
+_Avoid_: Reference enterprise, tenant, customer config
+
+**Scenario**:
+An Enterprise Profile plus a set of Seeded Processes, from which synthetic data is generated.
+_Avoid_: Demo world, fixture
+
+**Seeded Process**:
+A Manual Process or Decoy deliberately planted in a Scenario's data, with ground truth to score against.
+
+**Decoy**:
+A Seeded Process that looks automatable but should not be flagged, or should be flagged to keep human.
