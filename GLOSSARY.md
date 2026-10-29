@@ -20,13 +20,44 @@ A Discovery technique that reconstructs how Tasks are performed from user-intera
 A repeatable, end-to-end flow of work with an identifiable Case.
 _Avoid_: Workflow (overloaded with orchestration), procedure
 
+**Event**:
+Something that happened at a point in time, related to one or more Objects.
+_Avoid_: Log line, record (when meaning the occurrence)
+
+**Object**:
+A thing Events happen to or involve: a business document, a person, an application, a table.
+_Avoid_: Entity, artifact
+
+**Event Log**:
+All Events and Objects Discovery knows about for one deployment; a Process is a view over it, not a partition of it.
+
 **Case**:
-The single thing a Process instance works on, e.g. an order, an access request, a monthly report.
+The Object a Process view is centred on, e.g. an order, an access request, a monthly report.
 _Avoid_: Ticket, instance, item
+
+**Recorded / Derived / Inferred**:
+How a fact in the Event Log is known: a system logged it; it was computed deterministically from recorded facts; or an agent or model concluded it, with a confidence.
+
+**Claim**:
+A statement by a person or document about how work is done. Claims explain and cross-check the Event Log but are never Events.
+_Avoid_: Fact, finding
 
 **Task**:
 A single step a person performs within a Process.
 _Avoid_: Step, action, activity (when meaning human work)
+
+**Interaction**:
+One user-interface action within a Task, such as focusing a window or clicking a control. Interactions say what kind of thing was done, never what was typed or shown.
+_Avoid_: Click, keystroke, UI event
+
+**Task Execution**:
+One person's performance of one Task, made up of their Interactions; the bridge between what a person did on screen and the business Objects it affected.
+
+**Activity**:
+The business-meaningful name of what an Event did, drawn from the deployment's Activity Vocabulary, as distinct from the raw name the source system used.
+
+**Activity Vocabulary**:
+The set of Activities a deployment recognises, proposed by Discovery and editable by people.
 
 **Manual Process**:
 A Process in which at least one Task is done by a human that a machine plausibly could do.
